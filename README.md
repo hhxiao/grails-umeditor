@@ -1,4 +1,4 @@
-grails-ueditor
+grails-umeditor
 ==============
 
-Grails UEditor Plugin
+Grails UMeditor Plugin for http://ueditor.baidu.com/website/umeditor.html
