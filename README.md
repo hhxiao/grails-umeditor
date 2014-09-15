@@ -23,7 +23,8 @@ Or customize it,
 
 ~~~~~~~~~~~
     <umeditor:toolbar>
-        source | undo redo | bold italic underline strikethrough | superscript subscript | forecolor backcolor | removeformat |,
+        source | undo redo | bold italic underline strikethrough | superscript subscript |,
+        forecolor backcolor | removeformat |,
         | justifyleft justifycenter justifyright justifyjustify |,
         link unlink | emotion image video | map,
         | horizontal print preview fullscreen,
