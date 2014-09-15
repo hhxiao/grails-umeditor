@@ -16,7 +16,7 @@ compile ":umeditor:1.2.2"
 Configure toolbar buttions, use predefined toolbar types: mini, compcat, default, full.
 
 ~~~~~~~~~~~
-    <umeditor:toolbar type="compact"/>
+<umeditor:toolbar type="compact"/>
 ~~~~~~~~~~~
 
 Or customize it, 
