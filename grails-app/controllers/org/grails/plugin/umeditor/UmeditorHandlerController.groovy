@@ -22,15 +22,17 @@ class UmeditorHandlerController {
     def umeditorConfigService
 
     def upload() {
-        UmeditorUploader up = new UmeditorUploader(request);
+        UmeditorUploader up = new UmeditorUploader();
         up.setSavePath(umeditorConfigService.getUploadFolder());
         up.setAllowFiles(IMAGE_FILE_TYPES);
         up.setMaxSize(10000); //单位KB
-        up.upload();
+        up.upload(request);
 
         String callback = request.getParameter("callback");
 
-        String result = "{\"name\":\""+ up.getFileName() +"\", \"originalName\": \""+ up.getOriginalName() +"\", \"size\": "+ up.getSize() +", \"state\": \""+ up.getState() +"\", \"type\": \""+ up.getType() +"\", \"url\": \""+ up.getUrl() +"\"}";
+        String message = g.message(code: "umeditor.errorinfo.${up.state.name()}", default: '')
+
+        String result = "{\"name\":\""+ up.getFileName() +"\", \"originalName\": \""+ up.getOriginalName() +"\", \"size\": "+ up.size +", \"state\": \""+ message +"\", \"type\": \""+ up.getType() +"\", \"url\": \""+ up.getUrl() +"\"}";
 
         result = result.replaceAll( "\\\\", "\\\\" );
 
@@ -42,11 +44,15 @@ class UmeditorHandlerController {
     }
 
     def images(String path) {
-        UmeditorUploader up = new UmeditorUploader(request);
+        UmeditorUploader up = new UmeditorUploader();
         up.setSavePath(umeditorConfigService.getUploadFolder());
 
-        String file  = up.getPhysicalPath(path)
-        FileInputStream fis = new FileInputStream(new File(file))
-        response.outputStream << fis
+        File file = new File(up.getPhysicalPath(request, path))
+        if(file.file && file.exists()) {
+            FileInputStream fis = new FileInputStream(file)
+            response.outputStream << fis
+        } else {
+            response.sendError(HttpURLConnection.HTTP_NOT_FOUND)
+        }
     }
 }

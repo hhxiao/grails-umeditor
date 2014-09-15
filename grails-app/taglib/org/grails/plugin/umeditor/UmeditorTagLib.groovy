@@ -34,16 +34,19 @@ class UmeditorTagLib {
         out << editor.renderResources(g, minified)
     }
  
-    def config = { attrs, body ->
+    def toolbar = { attrs, body ->
+        String type = attrs.remove('type') ?: 'default'
+        String value = attrs.value ?: body()
+        def editor = new Umeditor(grailsApplication, getPluginResourcePath(request), getPluginVersion())
+        out << editor.renderToolbar(g, type, value, attrs)
     }
 
     def editor = { attrs, body ->
         if (!attrs.id) throwTagError("Tag [editor] is missing required attribute [id]")
-        String id = attrs.id
-        String name = attrs.name ?: attrs.id
+        String id = attrs.remove('id')
         String value = attrs.value ?: body()
         def editor = new Umeditor(grailsApplication, getPluginResourcePath(request), getPluginVersion())
-        out << editor.renderEditor(id, name, value, attrs)
+        out << editor.renderEditor(g, id, value, attrs)
     }
 
     private String getPluginResourcePath(def request) {

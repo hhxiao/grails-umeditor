@@ -50,13 +50,26 @@ class Umeditor {
 """
     }
 
-    def renderEditor(String instanceId, String instanceName, String initialValue, Map attrs) {
+    def renderToolbar(g, String type, String initialValue, Map attrs) {
+        StringBuilder buf = new StringBuilder()
+        if(!initialValue) {
+            initialValue = g.message(code: "umeditor.toolbar.${type}", default: "source | undo redo | bold italic underline strikethrough | forecolor backcolor | fontsize")
+        }
+        List<String> buttons = initialValue.split(',')
+        buf << """
+<script type="text/javascript">
+    window.UMEDITOR_CONFIG.toolbar = [${buttons.collect{"\"${it.trim()}\""}.join(',')}];
+</script>"""
+        return buf.toString()
+    }
+
+    def renderEditor(g, String instanceId, String initialValue, Map attrs) {
         StringBuilder buf = new StringBuilder()
         buf << """
-<textarea id="${instanceId}" name="${instanceName}" style="${attrs.remove('style')}" class="${attrs.remove('class')}">${initialValue}</textarea>
+<textarea id="${instanceId}" ${attrs.collect {it.key + '="' + it.value + '"'}.join(' ')}>${initialValue}</textarea>
 <script type="text/javascript">
     var um_${instanceId} = UM.getEditor("${instanceId}");
-</script>\n"""
+</script>"""
         return buf.toString()
     }
 }
