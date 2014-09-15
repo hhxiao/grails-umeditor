@@ -39,7 +39,6 @@ class Umeditor {
         return """
 <link href="${umeditorHome}/themes/default/css/umeditor${minified ? '.min' : ''}.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${umeditorHome}/umeditor.config.js"></script>
-<script type="text/javascript" src="${umeditorHome}/third-party/JSON.js"></script>
 <script type="text/javascript" src="${umeditorHome}/umeditor${minified ? '.min' : ''}.js"></script>
 <script type="text/javascript" src="${umeditorHome}/lang/${lang}/${lang}.js"></script>
 <script type="text/javascript">
