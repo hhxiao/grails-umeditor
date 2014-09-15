@@ -20,6 +20,21 @@ Include required resources in page header
     <umeditor:resources/>
 ~~~~~~~~~~~
 
+## Configuration
+
+Configure toolbar buttions, use predefined toolbar types: mini, compcat, default, full.
+
+~~~~~~~~~~~
+    <umeditor:toolbar type="compact"/>
+~~~~~~~~~~~
+
+Or customize it, 
+
+~~~~~~~~~~~
+    <umeditor:toolbar>source | undo redo | bold italic underline strikethrough | superscript subscript | forecolor backcolor | removeformat |,| justifyleft justifycenter justifyright justifyjustify |,link unlink | emotion image video | map,| horizontal print preview fullscreen,drafts,formula</umeditor:toolbar>
+~~~~~~~~~~~
+
+
 Declare editor in form
 ~~~~~~~~~~~
 <g:form>
