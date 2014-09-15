@@ -45,6 +45,7 @@ class Umeditor {
     window.UMEDITOR_CONFIG.home = "${umeditorHome}/";
     window.UMEDITOR_CONFIG.imageUrl = "${g.createLink(controller: 'umeditorHandler', action: 'upload')}";
     window.UMEDITOR_CONFIG.imagePath = "${g.createLink(controller: 'umeditorHandler', action: 'images')}/";
+    window.UMEDITOR = {config:{default:{}},instance:{}};
 </script>
 """
     }
@@ -67,7 +68,7 @@ class Umeditor {
         buf << """
 <textarea id="${instanceId}" ${attrs.collect {it.key + '="' + it.value + '"'}.join(' ')}>${initialValue}</textarea>
 <script type="text/javascript">
-    var um_${instanceId} = UM.getEditor("${instanceId}");
+    UMEDITOR.instance.${instanceId} = UM.getEditor("${instanceId}");
 </script>"""
         return buf.toString()
     }
