@@ -44,7 +44,7 @@ class Umeditor {
 <script type="text/javascript">
     window.UMEDITOR_CONFIG.home = "${umeditorHome}/";
     window.UMEDITOR_CONFIG.imageUrl = "${g.createLink(controller: 'umeditorHandler', action: 'upload')}";
-    window.UMEDITOR_CONFIG.imagePath = "${g.createLink(controller: 'umeditorHandler', action: 'images')}?path=";
+    window.UMEDITOR_CONFIG.imagePath = "${g.createLink(controller: 'umeditorHandler', action: 'images')}/";
 </script>
 """
     }
