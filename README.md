@@ -22,15 +22,15 @@ Configure toolbar buttions, use predefined toolbar types: mini, compcat, default
 Or customize it, 
 
 ~~~~~~~~~~~
-    <umeditor:toolbar>
-        source | undo redo | bold italic underline strikethrough | superscript subscript |,
-        forecolor backcolor | removeformat |,
-        | justifyleft justifycenter justifyright justifyjustify |,
-        link unlink | emotion image video | map,
-        | horizontal print preview fullscreen,
-        drafts,
-        formula
-    </umeditor:toolbar>
+<umeditor:toolbar>
+    source | undo redo | bold italic underline strikethrough | superscript subscript |,
+    forecolor backcolor | removeformat |,
+    | justifyleft justifycenter justifyright justifyjustify |,
+    link unlink | emotion image video | map,
+    | horizontal print preview fullscreen,
+    drafts,
+    formula
+</umeditor:toolbar>
 ~~~~~~~~~~~
 
 ## Usage
@@ -38,8 +38,8 @@ Or customize it,
 Include required resources in page header
 
 ~~~~~~~~~~~
-    <r:require module="jquery"/>
-    <umeditor:resources/>
+<r:require module="jquery"/>
+<umeditor:resources/>
 ~~~~~~~~~~~
 
 Declare editor in form
