@@ -1,7 +1,7 @@
 grails-umeditor
 ==============
 
-Grails UMeditor Plugin for http://ueditor.baidu.com/website/umeditor.html
+Grails UMeditor Plugin for Baidu UEditor Mini(http://ueditor.baidu.com/website/umeditor.html)
 
 
 ## Installation
