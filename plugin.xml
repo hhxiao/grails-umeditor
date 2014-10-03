@@ -8,6 +8,7 @@
   <type>UmeditorGrailsPlugin</type>
   <resources>
     <resource>UmeditorResources</resource>
+    <resource>UmeditorUrlMappings</resource>
     <resource>org.grails.plugin.umeditor.UmeditorHandlerController</resource>
     <resource>org.grails.plugin.umeditor.UmeditorConfigService</resource>
     <resource>org.grails.plugin.umeditor.UmeditorTagLib</resource>

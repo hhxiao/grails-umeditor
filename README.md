@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hhxiao/grails-umeditor.svg)](https://travis-ci.org/hhxiao/grails-umeditor)
+
 grails-umeditor
 ==============
 
