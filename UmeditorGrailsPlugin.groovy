@@ -18,7 +18,7 @@ UMeditor web WYSIWYG editor integration plugin.
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/grails-umeditor"
+    def documentation = "https://github.com/hhxiao/grails-umeditor"
 
     def license = "APACHE"
     def developers = []
