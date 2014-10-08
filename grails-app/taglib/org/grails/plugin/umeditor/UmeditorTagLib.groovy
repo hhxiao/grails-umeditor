@@ -20,24 +20,22 @@ import grails.util.Environment
 
 class UmeditorTagLib {
     static namespace = "umeditor"
-
-    def grailsApplication
-    def pluginManager
+    def umeditorConfigService
 
     def resources = { attrs ->
         def minified = true
         if (Environment.current != Environment.PRODUCTION) {
             minified = attrs?.minified ? attrs?.minified == 'true' : true
         }
-        attrs.remove('minified')
-        def editor = new Umeditor(grailsApplication, getPluginResourcePath(request), getPluginVersion(), attrs.remove('lang'))
-        out << editor.renderResources(g, minified)
+        def editor = umeditorConfigService.newEditor(request)
+        String lang = attrs.lang ?: umeditorConfigService.resolveLang(request)
+        out << editor.renderResources(g, minified, lang)
     }
  
     def toolbar = { attrs, body ->
         String type = attrs.remove('type') ?: 'default'
         String value = attrs.value ?: body()
-        def editor = new Umeditor(grailsApplication, getPluginResourcePath(request), getPluginVersion())
+        def editor = umeditorConfigService.newEditor(request)
         out << editor.renderToolbar(g, type, value, attrs)
     }
 
@@ -45,15 +43,7 @@ class UmeditorTagLib {
         if (!attrs.id) throwTagError("Tag [editor] is missing required attribute [id]")
         String id = attrs.remove('id')
         String value = attrs.value ?: body()
-        def editor = new Umeditor(grailsApplication, getPluginResourcePath(request), getPluginVersion())
+        def editor = umeditorConfigService.newEditor(request)
         out << editor.renderEditor(g, id, value, attrs)
-    }
-
-    private String getPluginResourcePath(def request) {
-        return "${request.contextPath}/plugins/${UmeditorConfig.PLUGIN_NAME.toLowerCase()}-$pluginVersion"
-    }
-
-    private String getPluginVersion() {
-        return pluginManager.getGrailsPlugin(UmeditorConfig.PLUGIN_NAME)?.version
     }
 }
