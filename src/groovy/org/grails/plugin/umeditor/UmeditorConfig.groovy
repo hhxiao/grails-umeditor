@@ -5,9 +5,5 @@ package org.grails.plugin.umeditor
  */
 class UmeditorConfig {
     static String PLUGIN_NAME = "umeditor"
-    static String PLUGIN_VERSION = "1.2.2"
-
-    UmeditorConfig(def grailsApplication) {
-
-    }
+    static String PLUGIN_VERSION = "1.2.2_1"
 }

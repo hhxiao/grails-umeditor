@@ -17,11 +17,9 @@
 package org.grails.plugin.umeditor
 
 class Umeditor {
-    def config
     def homePath
 
     Umeditor(def grailsApplication, String homePath) {
-        this.config = new UmeditorConfig(grailsApplication)
         this.homePath = homePath
     }
 

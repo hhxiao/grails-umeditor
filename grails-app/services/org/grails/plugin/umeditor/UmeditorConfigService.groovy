@@ -27,7 +27,7 @@ class UmeditorConfigService implements InitializingBean {
     def pluginManager
 
     private pluginVersion
-    private ueditorVersion
+    private umeditorVersion
 
     private Map<String, String> supportedLang = new ConcurrentHashMap<>()
 
@@ -52,7 +52,7 @@ class UmeditorConfigService implements InitializingBean {
     }
 
     String getUeditorResourcePath() {
-        return "/plugins/${UmeditorConfig.PLUGIN_NAME}-$pluginVersion/${UmeditorConfig.PLUGIN_NAME}-$ueditorVersion"
+        return "/plugins/${UmeditorConfig.PLUGIN_NAME}-$pluginVersion/${UmeditorConfig.PLUGIN_NAME}-$umeditorVersion"
     }
 
 
@@ -62,9 +62,9 @@ class UmeditorConfigService implements InitializingBean {
 
         // with this new version scheme, version 1.4.3_2 is a plugin patch to ueditor 1.4.3
         if(pluginVersion.contains('_')) {
-            ueditorVersion = pluginVersion.substring(0, pluginVersion.indexOf('_'))
+            umeditorVersion = pluginVersion.substring(0, pluginVersion.indexOf('_'))
         } else {
-            ueditorVersion = pluginVersion
+            umeditorVersion = pluginVersion
         }
     }
 }
