@@ -1,8 +1,6 @@
-import org.grails.plugin.umeditor.UmeditorConfig
-
 class UmeditorGrailsPlugin {
     // the plugin version
-    def version = UmeditorConfig.PLUGIN_VERSION
+    def version = "1.2.2_1"
 
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0 > *"
